@@ -62,6 +62,8 @@ def parse_arguments():
                         default=0, type=int)
     parser.add_argument('--UseStride', help='object detection with stride 3',
                         default=False, type=bool)
+    parser.add_argument('--InterpolateRange', help='Frames to interpolate missed boxes (0 disables interpolation)',   
+                        default=22, type=int)
     
     parser.add_argument('--Dynamic_tuning', help='Tracker',
                         default=True, type=bool)
@@ -350,7 +352,7 @@ DOWNSIZED_BACKGROUND_WIDTH = frame_width // DOWN_RATE
 DOWNSIZED_BACKGROUND_HEIGHT = frame_height // DOWN_RATE
 
 # Specify the address to the output video
-output_path = os.path.join(args['IDPath'], 'Synopsis.mp4')
+output_path = os.path.join(args['IDPath'], 'Synopsis4.mp4')
 # Initialize the output video generator
 video_synopsis = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'mp4v'),
                                  frame_rate, (frame_width, frame_height))
@@ -403,12 +405,16 @@ yolo_runtime = 0
 emptyframe_runtime = 0  
 tracking_runtime = 0
 
+if args['InterpolateRange'] > 0:  
+    # Initialize the frame buffer with shape [InterpolateRange, frame_height, frame_width, 3]  
+    Frame_buffer = np.zeros((args['InterpolateRange'], frame_height, frame_width, 3), dtype=np.uint8)  
+    
 start = time.time()
 # Run the algorithm
 for frame_number in range(frames_count):
     # Read a frame
     success, frame = video_capture.read()
-    
+        
     # Print processing information every 100 frames
     if frame_number % 1000 == 0:
         print(f"Processing frame {frame_number} of {frames_count}")
@@ -482,6 +488,12 @@ for frame_number in range(frames_count):
         if frame_number % 3 == 2:
             skipped_frame_2 = np.array(frame)
             continue
+            
+    if args['InterpolateRange'] > 0:  
+        # Shift all existing frames one step to the left  
+        Frame_buffer = np.roll(Frame_buffer, shift=-1, axis=0)  
+        # Insert the new frame at the last position  
+        Frame_buffer[-1] = frame  
 
     # Use the emptyframe object detector if the scene is empty of people
     if emptyframe_detection:
@@ -690,6 +702,49 @@ for frame_number in range(frames_count):
                     tube.add_image(object_image)
                     object_image = crop_image(skipped_frame_2, box2_pad)
                     tube.add_image(object_image)
+                    
+                # Check if interpolation is enabled  
+                if args['InterpolateRange'] > 0:  
+                    
+                    # Check if the interval for the missing object is less than InterpolateRange  
+                    if frame_number - args['InterpolateRange'] in tube.frame_number:  
+                        
+                        # Find the index of the corresponding frame in the tube's frame numbers  
+                        index = tube.frame_number.index(frame_number - args['InterpolateRange'])  
+                        
+                        # Loop through the active interpolation range  
+                        for i in range(frame_number - args['InterpolateRange'], frame_number):  
+                            
+                            # Check if the object was missed  
+                            if i not in tube.frame_number:  
+                                # Interpolate the coordinates of the missing box  
+                                x1 = np.interp(i, tube.frame_number, np.array(tube.boxes)[:, 0])  
+                                y1 = np.interp(i, tube.frame_number, np.array(tube.boxes)[:, 1])  
+                                x2 = np.interp(i, tube.frame_number, np.array(tube.boxes)[:, 2])  
+                                y2 = np.interp(i, tube.frame_number, np.array(tube.boxes)[:, 3])  
+                                missed_box = standardize_box((x1, y1, x2, y2), 0)  
+                                
+                                # Enlarge the box for motion estimation in segmentation  
+                                missed_box_pad = standardize_box(missed_box, CROP_MARGIN)  
+
+                                # Insert the new frame number and corresponding box into the tube's frame number list  
+                                tube.frame_number.insert(index, i)  
+                                # Insert the interpolated box into the tube's boxes list  
+                                tube.boxes.insert(index, missed_box)  
+                                # Insert the interpolated padded box into the tube's padded boxes list  
+                                tube.boxes_pad.insert(index, missed_box_pad)  
+
+                                # Calculate the index of the corresponding frame in the Frame_buffer  
+                                buffer_index = args['InterpolateRange'] - 1 - (frame_number - i)  
+
+                                # Crop the image of the object from the Frame_buffer  
+                                object_image = crop_image(Frame_buffer[buffer_index], missed_box_pad)  
+
+                                # Insert the object's image into the tube  
+                                tube.images.insert(index, object_image)  
+                                
+                            # Increment the index for the next insertion  
+                            index += 1  
             else:
                 # Create new tube
                 tube = Tube(frame_number, tube_id)

@@ -140,8 +140,8 @@ def extract_object(image, box_height, height_ratio):
         image_mask = image
     return image_mask
 
-def segment_objects(tube_list, background, pad=10, threshold_max=30,
-                    foreground_ratio=0.45, height_ratio=0.9):
+def segment_objects(tube_list, background, pad=15, threshold_max=45,
+                    foreground_ratio=0.48, height_ratio=0.9):
 
     """Modifies objects images in all tubes by segmentation"""
     for tube in tube_list:
@@ -290,7 +290,7 @@ def segment_objects(tube_list, background, pad=10, threshold_max=30,
                         break
 
                 # Modify the outlier mask pixels
-                kernel = np.ones((3, 3), np.uint8)
+                kernel = np.ones((5, 5), np.uint8)
                 image_mask = cv2.morphologyEx(image_mask, cv2.MORPH_CLOSE,
                                               kernel, iterations=2)
 
@@ -299,7 +299,7 @@ def segment_objects(tube_list, background, pad=10, threshold_max=30,
                                             height_ratio)
 
                 # Modify the outlier mask pixels
-                kernel = np.ones((13, 13), np.uint8)
+                kernel = np.ones((15, 15), np.uint8)
                 image_mask = cv2.morphologyEx(image_mask, cv2.MORPH_CLOSE,
                                               kernel, iterations=2)
                 image_mask = cv2.blur(image_mask, (3, 3))
