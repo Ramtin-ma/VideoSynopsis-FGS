@@ -19,7 +19,6 @@ import cv2
 import tracemalloc
 import numpy as np
 
-#from sfsort.SFSORT import SFSORT
 from SFSORT import SFSORT
 from ultralytics import YOLO
 from ultralytics.utils.torch_utils import select_device
@@ -28,8 +27,6 @@ from background import extract_background
 from background import extract_synopsis_background
 from tube import Tube, interpolate_missed_boxes, segment_objects
 from synopsis import generate_synopsis_video
-
-import psutil
 
 
 # *************************************************************************** #
@@ -273,8 +270,6 @@ VALID_BACKGROUND_PERIOD = 500
 # Define a reduced size for the background image in the empty frame detector 
 # to improve computational efficiency.
 DOWN_RATE = 4
-# Frame number of the last background that was generated
-LAST_GENERATED_BACKGROUND = 0
 # Min interval to save frames(ensures frames come from different time periods for background generation)
 MIN_SAVE_INTERVAL = 300
 
@@ -312,7 +307,7 @@ background_FIFO = BackgroundFIFO(BACKGROUND_FIFO_SIZE)
 # A counter to indicate the time for background sampling
 background_utilization_time = 0
 # Frame number of the last background that was generated. 
-last_generated_background  = 0
+last_generated_background  = -VALID_BACKGROUND_PERIOD
 # Frame number of the last empty-frame saved for background generation
 last_saved_emptyframe   = 0
 # Flag to check the background FIFO is initialized.
@@ -418,8 +413,7 @@ for frame_number in range(frames_count):
     # Print processing information every 100 frames
     if frame_number % 1000 == 0:
         print(f"Processing frame {frame_number} of {frames_count}")
-        print(f"RAM Usage: {psutil.virtual_memory().percent}%")
-
+        
     # Generate the video synopsis if everything is done
     if not success or frame_number == frames_count-1: #frames_count-1
 
