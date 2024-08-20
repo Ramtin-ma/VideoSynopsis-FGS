@@ -1,11 +1,9 @@
 # Video Synopsis: FGS Model
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
 ## Overview
 Video synopsis is a powerful technique for condensing long surveillance videos into a shorter summary, where key activities are preserved. The process involves detecting and tracking objects in a video, followed by creating "object tubes"—sequences of frames that encapsulate the movement of a particular object over time. These object tubes are then rearranged to maximize the visibility of non-overlapping objects in each frame, resulting in a condensed version of the original video. This technique is particularly useful for applications such as security surveillance, where reviewing hours of footage quickly is crucial.
 
-![Video Synopsis Framework](#placeholder-for-framework-figure)
+![Video Synopsis Framework](#Synopsis_Framework.jpg)
 
 ## Features
 - **FGS Model**: Fast and efficient video synopsis generation.
@@ -31,3 +29,5 @@ You can download the SynoClip dataset from the following Google Drive link:
 To install the required dependencies, run:
 ```bash
 pip install -r requirements.txt
+
+
