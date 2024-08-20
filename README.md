@@ -2,12 +2,10 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-## Abstract
-Video synopsis is an efficient method for condensing surveillance videos. This technique begins with the detection and tracking of objects, followed by the creation of object tubes. These tubes consist of sequences, each containing chronologically ordered bounding boxes of a unique object. To generate a condensed video, the first step involves rearranging the object tubes to maximize the number of non-overlapping objects in each frame. Then, these tubes are stitched to a background image extracted from the source video.
+## Overview
+Video synopsis is a powerful technique for condensing long surveillance videos into a shorter summary, where key activities are preserved. The process involves detecting and tracking objects in a video, followed by creating "object tubes"—sequences of frames that encapsulate the movement of a particular object over time. These object tubes are then rearranged to maximize the visibility of non-overlapping objects in each frame, resulting in a condensed version of the original video. This technique is particularly useful for applications such as security surveillance, where reviewing hours of footage quickly is crucial.
 
-The lack of a standard dataset for the video synopsis task hinders the comparison of different video synopsis models. This paper addresses this issue by introducing a standard dataset, called SynoClip, designed specifically for the video synopsis task. SynoClip includes all the necessary features needed to evaluate various models directly and effectively.
-
-Additionally, this work introduces a video synopsis model, called FGS, with low computational cost. The model includes an empty-frame object detector to identify frames empty of any objects, facilitating efficient utilization of the deep object detector. Moreover, a tube grouping algorithm is proposed to maintain relationships among tubes in the synthesized video. This is followed by a greedy tube rearrangement algorithm, which efficiently determines the start time of each tube. Finally, the proposed model is evaluated using the proposed dataset.
+![Video Synopsis Framework](#placeholder-for-framework-figure)
 
 ## Features
 - **FGS Model**: Fast and efficient video synopsis generation.
