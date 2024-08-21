@@ -11,38 +11,41 @@ Video synopsis is a powerful technique for condensing long surveillance videos i
 - **Tube Grouping Algorithm**: Maintains relationships among object tubes.
 - **Greedy Tube Rearrangement**: Efficiently determines the start time for each object tube.
 
-- ## SynoClip Dataset
-The **SynoClip** dataset is a comprehensive and standard dataset specifically designed for the video synopsis task. It consists of six videos, each ranging from 8 to 45 minutes in length, captured from outdoor-mounted surveillance cameras. This dataset is meticulously annotated with tracking information, making it an ideal resource not only for video synopsis but also for related tasks such as object detection in videos and multi-object tracking.
+## SynoClip Dataset
+The **SynoClip** dataset is a comprehensive and standard dataset specifically designed for the video synopsis task. It consists of six videos, each ranging from 8 to 45 minutes in length, captured from outdoor-mounted surveillance cameras. This dataset is annotated with tracking information, making it an ideal resource not only for video synopsis but also for related tasks such as object detection in videos and multi-object tracking.
 
 ### Key Features:
-- **Diverse Video Lengths**: Includes six videos with varying lengths, ranging from 8 to 45 minutes, providing a variety of scenarios for testing.
 - **Outdoor Surveillance Footage**: Captured from outdoor-mounted cameras, the dataset reflects real-world surveillance conditions.
-- **Tracking Annotations**: Each video comes with detailed tracking annotations, facilitating tasks such as object detection, tracking, and synopsis generation.
+- **Tracking Annotations**: Each video comes with detailed tracking annotations, enabling a fair comparison of video synopsis model performance.
 - **Multi-Purpose Utility**: While primarily intended for video synopsis, the dataset can also be used for training and evaluating object detection and tracking models in videos.
 
-### Download the Dataset
-You can download the SynoClip dataset from the following Google Drive link:
-
-[Download SynoClip Dataset](#your-google-drive-link-here)
-
-
-## SynoClip Dataset
-We introduce the **SynoClip** dataset, a standard dataset specifically designed for the video synopsis task. It includes all the necessary features needed to evaluate various models directly and effectively.
 
 ### Download the Dataset
 You can download the SynoClip dataset from the following Google Drive link:
 
 [Download SynoClip Dataset](#your-google-drive-link-here)
 
-## Installation
+## Using the Code
 
-### Prerequisites
-- Python 3.x
-- [Other dependencies]
+This project utilizes the YOLOv8n model from Ultralytics for object detection. To run the code, you need to execute `main.py` with the required arguments.
 
-### Install Requirements
-To install the required dependencies, run:
+### Running the Code
+To run the video synopsis model, use the following command:
+
 ```bash
-pip install -r requirements.txt
+python main.py --InPath path/to/input/file.mp4 \
+               --IDPath path/to/app/files/ \
+               --Model yolov8n.pt
+
+## Colab Notebook  
+
+To facilitate running the code without any local setup, we provide a Google Colab notebook. You can access it via the link below:  
+
+[Open in Google Colab](#your-colab-notebook-link-here)  
+
+## Fine-Tuned YOLOv8n Model  
+
+We have fine-tuned the YOLOv8n model using the SynoClip dataset. The best model weights, labeled as `best.pt`, are included in this repository. To utilize these weights, specify the `--Model` argument in your command.
+
 
 
