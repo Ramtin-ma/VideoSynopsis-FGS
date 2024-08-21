@@ -33,8 +33,8 @@ This project utilizes the YOLOv8n model from Ultralytics for object detection. T
 To run the video synopsis model, use the following command:
 
 ```bash
-python main.py --InPath path/to/input/video/input.mp4 \
-               --IDPath path/to/save/directory/ \
+python main.py --InPath path/to/input/video/input.mp4 
+               --IDPath path/to/save/directory/ 
                --Model path/to/yolo/weight/best.pt
 ```
 ## Colab Notebook  
