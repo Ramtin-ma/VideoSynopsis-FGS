@@ -1,4 +1,4 @@
-# Video Synopsis: FGS Model
+# A Low-Computational Video Synopsis Frameworkwith a Standard Dataset
 
 Video synopsis is a powerful technique for condensing long surveillance videos into a shorter summary, where key activities are preserved. The process involves detecting and tracking objects in a video, followed by creating "object tubes"—sequences of frames that encapsulate the movement of a particular object over time. These object tubes are then rearranged to maximize the visibility of non-overlapping objects in each frame, resulting in a condensed version of the original video. This technique is particularly useful for applications such as security surveillance, where reviewing hours of footage quickly is crucial.
 
