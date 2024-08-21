@@ -17,7 +17,7 @@ The **SynoClip** dataset is a comprehensive and standard dataset specifically de
 ### Download the Dataset
 You can download the SynoClip dataset from the following Google Drive link:
 
-[Download SynoClip Dataset](#your-google-drive-link-here)
+[Download SynoClip Dataset](https://drive.google.com/drive/folders/10mmpU9FcYmthAUAhOWRT1F0G_kHLz3Hg?usp=drive_link)
 
 ### Fine-Tuned YOLOv8n Model
 
