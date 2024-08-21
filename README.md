@@ -36,7 +36,7 @@ python3 main.py --InPath path/to/input/video/input.mp4 \
 ```
 To facilitate running the code, we provide a Google Colab notebook. You can access it via the link below:
 
-<a href="https://colab.research.google.com/github/Ramtin-ma/VideoSynopsis-FGS/blob/main/FGS.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open FGS In Colab"></a>  
+<a href="https://colab.research.google.com/github/Ramtin-ma/VideoSynopsis-FGS/blob/main/VideoSynopsis_FGS.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open FGS In Colab"></a>  
 
 ## Citation
 ```
