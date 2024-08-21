@@ -36,7 +36,7 @@ To run the video synopsis model, use the following command:
 python main.py --InPath path/to/input/file.mp4 \
                --IDPath path/to/app/files/ \
                --Model yolov8n.pt
-
+```
 ## Colab Notebook  
 
 To facilitate running the code without any local setup, we provide a Google Colab notebook. You can access it via the link below:  
