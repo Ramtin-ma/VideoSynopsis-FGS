@@ -11,6 +11,21 @@ Video synopsis is a powerful technique for condensing long surveillance videos i
 - **Tube Grouping Algorithm**: Maintains relationships among object tubes.
 - **Greedy Tube Rearrangement**: Efficiently determines the start time for each object tube.
 
+- ## SynoClip Dataset
+The **SynoClip** dataset is a comprehensive and standard dataset specifically designed for the video synopsis task. It consists of six videos, each ranging from 8 to 45 minutes in length, captured from outdoor-mounted surveillance cameras. This dataset is meticulously annotated with tracking information, making it an ideal resource not only for video synopsis but also for related tasks such as object detection in videos and multi-object tracking.
+
+### Key Features:
+- **Diverse Video Lengths**: Includes six videos with varying lengths, ranging from 8 to 45 minutes, providing a variety of scenarios for testing.
+- **Outdoor Surveillance Footage**: Captured from outdoor-mounted cameras, the dataset reflects real-world surveillance conditions.
+- **Tracking Annotations**: Each video comes with detailed tracking annotations, facilitating tasks such as object detection, tracking, and synopsis generation.
+- **Multi-Purpose Utility**: While primarily intended for video synopsis, the dataset can also be used for training and evaluating object detection and tracking models in videos.
+
+### Download the Dataset
+You can download the SynoClip dataset from the following Google Drive link:
+
+[Download SynoClip Dataset](#your-google-drive-link-here)
+
+
 ## SynoClip Dataset
 We introduce the **SynoClip** dataset, a standard dataset specifically designed for the video synopsis task. It includes all the necessary features needed to evaluate various models directly and effectively.
 
