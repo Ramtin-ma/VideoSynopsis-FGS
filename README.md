@@ -33,18 +33,15 @@ This project utilizes the YOLOv8n model from Ultralytics for object detection. T
 To run the video synopsis model, use the following command:
 
 ```bash
-python main.py --InPath path/to/input/file.mp4 \
-               --IDPath path/to/app/files/ \
-               --Model yolov8n.pt
+python main.py --InPath path/to/input/video/input.mp4 \
+               --IDPath path/to/save/directory/ \
+               --Model path/to/yolo/weight/best.pt
 ```
 ## Colab Notebook  
 
 To facilitate running the code without any local setup, we provide a Google Colab notebook. You can access it via the link below:  
 
-[Open in Google Colab](#your-colab-notebook-link-here)  
-[![Open in Google Colab](https://img.shields.io/badge/Open%20in-Google%20Colab-blue?style=for-the-badge&logo=googlecolab)](https://colab.research.google.com/drive/YOUR_NOTEBOOK_LINK_HERE)  
 <a href="https://colab.research.google.com/github/Ramtin-ma/VideoSynopsis-FGS/blob/main/FGS.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open FGS In Colab"></a>  
-
 
 ## Fine-Tuned YOLOv8n Model  
 
