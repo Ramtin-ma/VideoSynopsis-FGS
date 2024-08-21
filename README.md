@@ -1,11 +1,10 @@
 # Video Synopsis: FGS Model
 
-## Overview
 Video synopsis is a powerful technique for condensing long surveillance videos into a shorter summary, where key activities are preserved. The process involves detecting and tracking objects in a video, followed by creating "object tubes"—sequences of frames that encapsulate the movement of a particular object over time. These object tubes are then rearranged to maximize the visibility of non-overlapping objects in each frame, resulting in a condensed version of the original video. This technique is particularly useful for applications such as security surveillance, where reviewing hours of footage quickly is crucial.
 
 ![Video Synopsis Framework](Synopsis_Framework.jpg)
 
-This work is intriduce FGS Model. Full details are available at https://arxiv.org
+This work is introduce a video synopsis model called FGS. Full details are available at https://arxiv.org
 
 ## SynoClip Dataset
 The **SynoClip** dataset is a comprehensive and standard dataset specifically designed for the video synopsis task. It consists of six videos, each ranging from 8 to 45 minutes in length, captured from outdoor-mounted surveillance cameras. This dataset is annotated with tracking information, making it an ideal resource not only for video synopsis but also for related tasks such as object detection in videos and multi-object tracking.
