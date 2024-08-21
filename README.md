@@ -5,11 +5,7 @@ Video synopsis is a powerful technique for condensing long surveillance videos i
 
 ![Video Synopsis Framework](Synopsis_Framework.jpg)
 
-## Features
-- **FGS Model**: Fast and efficient video synopsis generation.
-- **Empty-Frame Object Detector**: Identifies frames without any objects to optimize the object detection process.
-- **Tube Grouping Algorithm**: Maintains relationships among object tubes.
-- **Greedy Tube Rearrangement**: Efficiently determines the start time for each object tube.
+This work is intriduce FGS Model. Full details are available at https://arxiv.org
 
 ## SynoClip Dataset
 The **SynoClip** dataset is a comprehensive and standard dataset specifically designed for the video synopsis task. It consists of six videos, each ranging from 8 to 45 minutes in length, captured from outdoor-mounted surveillance cameras. This dataset is annotated with tracking information, making it an ideal resource not only for video synopsis but also for related tasks such as object detection in videos and multi-object tracking.
@@ -19,7 +15,6 @@ The **SynoClip** dataset is a comprehensive and standard dataset specifically de
 - **Tracking Annotations**: Each video comes with detailed tracking annotations, enabling a fair comparison of video synopsis model performance.
 - **Multi-Purpose Utility**: While primarily intended for video synopsis, the dataset can also be used for training and evaluating object detection and tracking models in videos.
 
-
 ### Download the Dataset
 You can download the SynoClip dataset from the following Google Drive link:
 
@@ -28,8 +23,6 @@ You can download the SynoClip dataset from the following Google Drive link:
 ## Using the Code
 
 This project utilizes the YOLOv8n model from Ultralytics for object detection. To run the code, you need to execute `main.py` with the required arguments.
-
-### Running the Code
 To run the video synopsis model, use the following command:
 
 ```bash
@@ -37,9 +30,7 @@ python3 main.py --InPath path/to/input/video/input.mp4
                --IDPath path/to/save/directory/ 
                --Model path/to/yolo/weight/best.pt
 ```
-## Colab Notebook  
-
-To facilitate running the code without any local setup, we provide a Google Colab notebook. You can access it via the link below:  
+To facilitate running the code, we provide a Google Colab notebook. You can access it via the link below:  
 
 <a href="https://colab.research.google.com/github/Ramtin-ma/VideoSynopsis-FGS/blob/main/FGS.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open FGS In Colab"></a>  
 
