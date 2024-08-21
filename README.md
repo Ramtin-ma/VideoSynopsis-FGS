@@ -19,6 +19,10 @@ You can download the SynoClip dataset from the following Google Drive link:
 
 [Download SynoClip Dataset](#your-google-drive-link-here)
 
+### Fine-Tuned YOLOv8n Model  
+
+We have fine-tuned the YOLOv8n model using the SynoClip dataset. The best model weights, labeled as `best.pt`, are included in this repository. To utilize these weights, specify the `--Model` argument in your command.
+
 ## Using the Code
 
 This project utilizes the YOLOv8n model from Ultralytics for object detection. To run the code, you need to execute `main.py` with the required arguments.
@@ -33,9 +37,17 @@ To facilitate running the code, we provide a Google Colab notebook. You can acce
 
 <a href="https://colab.research.google.com/github/Ramtin-ma/VideoSynopsis-FGS/blob/main/FGS.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open FGS In Colab"></a>  
 
-## Fine-Tuned YOLOv8n Model  
-
-We have fine-tuned the YOLOv8n model using the SynoClip dataset. The best model weights, labeled as `best.pt`, are included in this repository. To utilize these weights, specify the `--Model` argument in your command.
-
-
+## Citation
+```
+@misc{FGS,
+    title={A Low-Computational Video Synopsis Frameworkwith a Standard Dataset},
+    author={},
+    year={2024},
+    doi = {}, 
+    url = {}, 
+    eprint={},
+    archivePrefix={arXiv},
+    primaryClass={}
+}
+```
 
