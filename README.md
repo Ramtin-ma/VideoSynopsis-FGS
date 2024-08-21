@@ -30,7 +30,9 @@ This project utilizes the YOLOv8n model from Ultralytics for object detection. T
 ```bash
 python3 main.py --InPath path/to/input/video/input.mp4 \
                 --IDPath path/to/save/directory/ \
-                --Model path/to/yolo/weight/best.pt
+                --Model path/to/yolo/weight/best.pt \
+                --Device '0' \
+                --UseStride True
 ```
 To facilitate running the code, we provide a Google Colab notebook. You can access it via the link below:
 
