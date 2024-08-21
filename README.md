@@ -42,6 +42,7 @@ python main.py --InPath path/to/input/file.mp4 \
 To facilitate running the code without any local setup, we provide a Google Colab notebook. You can access it via the link below:  
 
 [Open in Google Colab](#your-colab-notebook-link-here)  
+[![Open in Google Colab](https://img.shields.io/badge/Open%20in-Google%20Colab-blue?style=for-the-badge&logo=googlecolab)](https://colab.research.google.com/drive/YOUR_NOTEBOOK_LINK_HERE)  
 
 ## Fine-Tuned YOLOv8n Model  
 
