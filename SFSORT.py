@@ -276,13 +276,12 @@ class SFSORT:
             unmatched_a = np.where(x < 0)[0]
             unmatched_b = np.where(y < 0)[0]
         else:
-            y, x = linear_sum_assignment(cost_matrix) 
-            matches = np.asarray([[i, x] for i, x in enumerate(x) if cost_matrix[i, x] <= thresh])
-            unmatched = np.ones(cost_matrix.shape)
-            for i, xi in matches:
-                unmatched[i, xi] = 0.0
-            unmatched_a = np.where(unmatched.all(1))[0]
-            unmatched_b = np.where(unmatched.all(0))[0]
+            row_ind, col_ind = linear_sum_assignment(cost_matrix)  
+            matches = np.array([[row, col] for row, col in zip(row_ind, col_ind) if cost_matrix[row, col] <= thresh])  
+            matched_rows = set(row_ind)  
+            matched_cols = set(col_ind)  
+            unmatched_a = np.array([i for i in range(cost_matrix.shape[0]) if i not in matched_rows])  
+            unmatched_b = np.array([j for j in range(cost_matrix.shape[1]) if j not in matched_cols])  
             
         return matches, unmatched_a, unmatched_b
     
