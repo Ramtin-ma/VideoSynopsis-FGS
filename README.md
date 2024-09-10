@@ -2,9 +2,7 @@
 
 Video synopsis is a powerful technique for condensing long surveillance videos into shorter summaries where key activities are preserved. The process involves detecting and tracking objects in a video, followed by creating "object tubes"—sequences of frames that encapsulate the movement of a particular object over time. These object tubes are then rearranged to maximize the visibility of non-overlapping objects in each frame, resulting in a condensed version of the original video. This technique is particularly useful for applications such as security surveillance, where quickly reviewing hours of footage is crucial.
 
-![Video Synopsis Framework](Synopsis_Framework.jpg)
-
-This work introduces a video synopsis model called FGS. Full details are available at https://arxiv.org.
+This work introduces a video synopsis model called FGS. Full details are available at https://arxiv.org/abs/2409.05230.
 
 ## SynoClip Dataset
 The **SynoClip** dataset is a comprehensive and standard dataset specifically designed for the video synopsis task. It consists of six videos, ranging from 8 to 45 minutes, captured from outdoor-mounted surveillance cameras. This dataset is annotated with tracking information, making it an ideal resource not only for video synopsis but also for related tasks such as object detection in videos and multi-object tracking.
@@ -40,15 +38,14 @@ To facilitate running the code, we provide a Google Colab notebook. You can acce
 
 ## Citation
 ```
-@misc{FGS,
-    title={A Low-Computational Video Synopsis Frameworkwith a Standard Dataset},
-    author={},
-    year={2024},
-    doi = {}, 
-    url = {}, 
-    eprint={},
-    archivePrefix={arXiv},
-    primaryClass={}
+@misc{malekpour2024lowcomputationalvideosynopsisframework,
+      title={A Low-Computational Video Synopsis Framework with a Standard Dataset}, 
+      author={Ramtin Malekpour and M. Mehrdad Morsali and Hoda Mohammadzade},
+      year={2024},
+      eprint={2409.05230},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2409.05230}, 
 }
 ```
 
