@@ -347,7 +347,7 @@ DOWNSIZED_BACKGROUND_WIDTH = frame_width // DOWN_RATE
 DOWNSIZED_BACKGROUND_HEIGHT = frame_height // DOWN_RATE
 
 # Specify the address to the output video
-output_path = os.path.join(args['IDPath'], 'Synopsis4.mp4')
+output_path = os.path.join(args['IDPath'], 'Synopsis.mp4')
 # Initialize the output video generator
 video_synopsis = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'mp4v'),
                                  frame_rate, (frame_width, frame_height))
