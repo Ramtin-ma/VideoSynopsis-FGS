@@ -411,7 +411,7 @@ for frame_number in range(frames_count):
     success, frame = video_capture.read()
         
     # Print processing information every 100 frames
-    if frame_number % 1000 == 0:
+    if frame_number % 100 == 0:
         print(f"Processing frame {frame_number} of {frames_count}")
         
     # Generate the video synopsis if everything is done
