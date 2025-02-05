@@ -421,10 +421,8 @@ for frame_number in range(frames_count):
         tube_generation_finishing_moment = time.time()
 
         # Eliminate short tubes
-        for tube in tube_list:
-            if len(tube.images) < MIN_TUBE_LENGTH:
-                tube_list.remove(tube)
-
+        tube_list = [tube for tube in tube_list if len(tube.images) >= MIN_TUBE_LENGTH]  
+                
         # Sort tubes
         tube_list.sort(key=TubeID)
 
